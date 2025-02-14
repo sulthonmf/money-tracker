@@ -1,4 +1,3 @@
-// import * as FileSystem from "expo-file-system";
 import * as Print from "expo-print";
 
 export default async function generatePDF(transactions: any[]) {

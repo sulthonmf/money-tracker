@@ -67,7 +67,6 @@ export default function HomeScreen() {
   const { chartData, totalIncome, totalExpenses, balance } = useMemo(() => {
     const filteredData = getFilteredData();
 
-    // Group transactions by date
     const groupedByDate = filteredData.reduce((acc, transaction) => {
       const date = new Date(transaction.created_at).toLocaleDateString();
       if (!acc[date]) {
@@ -81,7 +80,6 @@ export default function HomeScreen() {
       return acc;
     }, {} as Record<string, { income: number; expense: number }>);
 
-    // Convert to array format and sort by date
     const chartData = Object.entries(groupedByDate)
       .map(([date, values]) => ({
         date,
@@ -89,7 +87,7 @@ export default function HomeScreen() {
         expense: values.expense || 0,
       }))
       .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
-      .slice(-7); // Show last 7 days
+      .slice(-7);
 
     const totalIncome = filteredData
       .filter((t) => t.type === "income")

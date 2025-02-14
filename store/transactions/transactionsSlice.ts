@@ -29,7 +29,7 @@ const transactionsSlice = createSlice({
       state.transactions = action.payload;
     },
     addTransaction: (state, action: PayloadAction<Transaction>) => {
-      state.transactions.unshift(action.payload); // Add to beginning of array
+      state.transactions.unshift(action.payload);
     },
     setLoading: (state, action: PayloadAction<boolean>) => {
       state.loading = action.payload;

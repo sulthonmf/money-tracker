@@ -43,7 +43,6 @@ export default function ChangePasswordScreen() {
     setError("");
 
     try {
-      // Verify current password
       const { error: signInError } = await supabase.auth.signInWithPassword({
         email: user?.email || "",
         password: currentPassword,
@@ -54,7 +53,6 @@ export default function ChangePasswordScreen() {
         return;
       }
 
-      // Update password
       const { error: updateError } = await supabase.auth.updateUser({
         password: newPassword,
       });

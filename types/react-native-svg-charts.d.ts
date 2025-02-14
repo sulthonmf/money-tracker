@@ -11,5 +11,4 @@ declare module 'react-native-svg-charts' {
       [key: string]: any;
     };
   }>;
-  // Add other components as needed
 } 
